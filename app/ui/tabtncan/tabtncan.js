@@ -45,16 +45,20 @@ function initVisualElement() {
 	ta.style.width = 150;
 	ta.style.height = 228;
 	ta.style.overflowY = "scroll";
-
+	ta.value = "100 100 20\n"
+		+ "200 200 10\n"
+		+ "100 250 50";
+	
 	btn = document.createElement('button');
-	btn.innerHTML = "Start";
+	btn.innerHTML = "Draw circle(s)";
+	btn.addEventListener("click", clickButton);
 	
 	can = document.createElement('canvas');
 	can.width = 250;
 	can.height = 250;
 	can.style.width = 250;
 	can.style.height = 250;
-	can.style.border = "1px solid #000";
+	can.style.border = "0px solid #000";
 	
 	document.body.append(div);
 	div.append(divL);
@@ -64,13 +68,26 @@ function initVisualElement() {
 		divR.append(can);
 }
 
+// clear canvas
 function clearCanvas() {
 	var ctx = can.getContext('2d');
 	ctx.clearRect(0, 0, can.width, can.height);
 }
 
+// draw circle
 function drawCircle(x, y, r) {
 	var ctx = can.getContext('2d');
 	ctx.arc(x, y, r, 0, 2 * Math.PI)
 	ctx.stroke();
+}
+
+// do something when button is clicked
+function clickButton() {
+	console.log("Draw circle(s)");
+	
+	var lines = ta.value.split('\n');
+	var N = lines.length;
+	for(i = 0; i < N; i++) {
+		console.log(lines[i]);
+	}
 }
