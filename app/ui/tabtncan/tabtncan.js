@@ -26,7 +26,7 @@ function initVisualElement() {
 	div = document.createElement('div');
 	div.style.width = 400;
 	div.style.height = 250;
-	div.style.border = "0px solid #000";
+	div.style.border = "1px solid #000";
 	div.style.background = "#eee";
 
 	divL = document.createElement('div');
