@@ -7,6 +7,7 @@
 	20220218 Start this example application.
 	0937 Create main initVisualElement functions, empty.
 	1825 Make clearCanvas and drawCircle functions.
+	2102 Finish drawCircle function.
 */
 
 // define global variables
@@ -45,9 +46,10 @@ function initVisualElement() {
 	ta.style.width = 150;
 	ta.style.height = 228;
 	ta.style.overflowY = "scroll";
-	ta.value = "100 100 20\n"
-		+ "200 200 10\n"
-		+ "100 250 50";
+	ta.value = ""
+		+ "125 125 124\n"
+		+ "50 125 49\n"
+		+ "175 125 74";
 	
 	btn = document.createElement('button');
 	btn.innerHTML = "Draw circle(s)";
@@ -77,17 +79,22 @@ function clearCanvas() {
 // draw circle
 function drawCircle(x, y, r) {
 	var ctx = can.getContext('2d');
+	ctx.beginPath();
 	ctx.arc(x, y, r, 0, 2 * Math.PI)
 	ctx.stroke();
 }
 
 // do something when button is clicked
 function clickButton() {
-	console.log("Draw circle(s)");
+	clearCanvas();
 	
 	var lines = ta.value.split('\n');
 	var N = lines.length;
 	for(i = 0; i < N; i++) {
-		console.log(lines[i]);
+		var vars = lines[i].split(' ');
+		var x = parseInt(vars[0]);
+		var y = parseInt(vars[1]);
+		var r = parseInt(vars[2]);
+		drawCircle(x, y, r);
 	}
 }
