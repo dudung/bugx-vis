@@ -8,6 +8,7 @@
 	0937 Create main initVisualElement functions, empty.
 	1825 Make clearCanvas and drawCircle functions.
 	2102 Finish drawCircle function.
+	2127 Correct style width and height with px.
 */
 
 // define global variables
@@ -24,27 +25,27 @@ function main() {
 // initialize visual element
 function initVisualElement() {
 	div = document.createElement('div');
-	div.style.width = 400;
-	div.style.height = 250;
+	div.style.width = "400px";
+	div.style.height = "250px";
 	div.style.border = "1px solid #000";
 	div.style.background = "#eee";
 
 	divL = document.createElement('div');
 	divL.style.float = "left";
-	divL.style.width = 150;
-	divL.style.height = 250;
+	divL.style.width = "150px";
+	divL.style.height = "250px";
 	divL.style.background = "#fdd";
 	divL.style.border = "0px solid #000";
 
 	divR = document.createElement('div');
 	divR.style.float = "right";
-	divR.style.width = 250;
-	divR.style.height = 250;
+	divR.style.width = "250px";
+	divR.style.height = "250px";
 	divR.style.background = "#ddf";
 	
 	ta = document.createElement('textarea');
-	ta.style.width = 150;
-	ta.style.height = 228;
+	ta.style.width = "150px";
+	ta.style.height = "228px";
 	ta.style.overflowY = "scroll";
 	ta.value = ""
 		+ "125 125 124\n"
@@ -56,14 +57,13 @@ function initVisualElement() {
 	btn.addEventListener("click", clickButton);
 	
 	can = document.createElement('canvas');
-	can.width = 250;
-	can.height = 250;
-	can.style.width = 250;
-	can.style.height = 250;
+	can.width = "250";
+	can.height = "250";
+	can.style.width = "250px";
+	can.style.height = "250px";
 	can.style.border = "0px solid #000";
 	
-	body = document.getElementById("bugx-vis");
-	body.append(div);
+	document.body.append(div);
 	div.append(divL);
 		divL.append(ta);
 		divL.append(btn);
