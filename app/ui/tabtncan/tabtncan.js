@@ -33,6 +33,7 @@ function initVisualElement() {
 	divL.style.width = 100;
 	divL.style.height = 300;
 	divL.style.background = "#fdd";
+	divL.style.border = "0px solid #000";
 
 	divR = document.createElement('div');
 	divR.style.float = "right";
@@ -40,7 +41,13 @@ function initVisualElement() {
 	divR.style.height = 300;
 	divR.style.background = "#ddf";
 	
+	ta = document.createElement('textarea');
+	ta.style.width = 100;
+	ta.style.height = 250;
+	ta.style.overflowY = "scroll";
+
 	document.body.append(div);
 	div.append(divL);
+		divL.append(ta);
 	div.append(divR);	
 }
