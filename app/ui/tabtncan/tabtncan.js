@@ -62,7 +62,8 @@ function initVisualElement() {
 	can.style.height = 250;
 	can.style.border = "0px solid #000";
 	
-	document.body.append(div);
+	body = document.getElementById("bugx-vis");
+	body.append(div);
 	div.append(divL);
 		divL.append(ta);
 		divL.append(btn);
